@@ -5,33 +5,84 @@ theme = 'PaperMod'
 
 enableRobotsTXT = true
 enableEmoji = true
+paginate = 10
 
 [params]
   author = '蔡昕颖'
-  description = '材料科学 PhD · 触觉传感 · 机器人 · AI 工具'
+  description = '0 基础转行机器人算法 · 材料科学 PhD 的技术学习博客'
+  defaultTheme = "auto"
   ShowReadingTime = true
-  ShowShareButtons = true
+  ShowShareButtons = false
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   ShowToc = true
   TocOpen = false
+  ShowWordCount = true
+  ShowLastMod = true
+  hideMeta = false
+  hideSummary = false
 
-[params.homeInfoParams]
-  Title = "Hi, 我是蔡蔡"
-  Content = "香港城市大学材料系 PhD，关注半导体、柔性电子、机器人触觉传感。这里是和 AI 一起搭建的技术笔记。"
+  [params.assets]
+    favicon = "/favicon.svg"
 
-[[params.socialIcons]]
-  name = "github"
-  url = "https://github.com/caixinying-less-is-more"
+  [params.cover]
+    hidden = true
+    hiddenInList = true
+    hiddenInSingle = true
 
-[[params.socialIcons]]
-  name = "email"
-  url = "mailto:ntnn3619@agent.qq.com"
+  [params.homeInfoParams]
+    Title = "蔡蔡 🐝"
+    Content = """
+<div class="hero-intro">
+
+**一个 0 基础转行机器人算法的技术学习博客**
+
+</div>
+
+---
+
+<div class="hero-bio">
+
+📚 **2020–2024**　本科 · 浙江大学 · 能源与环境系统工程
+🎓 **2025–至今**　博士 · 香港城市大学 · 材料科学与工程
+
+</div>
+
+---
+
+<div class="hero-dreams">
+
+🎯 **短期梦想**　到一家机器人公司，研究机器人算法
+🌌 **长期梦想**　让机器人做饭、干家务、挣钱养人类——使人能够实现自由而全面的发展
+
+</div>
+
+---
+
+这里记录我从材料科学走向机器人算法的每一步：学过的东西、踩过的坑、和 AI 一起探索的发现。
+"""
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/caixinying-less-is-more"
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:ntnn3619@agent.qq.com"
+
+  [params.editPost]
+    URL = "https://github.com/caixinying-less-is-more/blog/tree/main/content"
+    Text = "来源"
+    appendFilePath = true
 
 [markup.highlight]
   style = 'github'
+  lineNos = false
   noClasses = false
+
+[markup.goldmark.renderer]
+  unsafe = true
 
 [menu]
   [[menu.main]]
