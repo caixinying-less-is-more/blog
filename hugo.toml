@@ -1,4 +1,4 @@
-baseURL = 'https://cindyclai.com/'
+baseURL = 'https://cecicxy.github.io/cecicxy-blog/'
 locale = 'zh-cn'
 title = "蔡蔡的技术笔记"
 theme = 'PaperMod'
