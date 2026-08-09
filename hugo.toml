@@ -1,0 +1,55 @@
+baseURL = 'https://cindyclai.com/'
+locale = 'zh-cn'
+title = "蔡蔡的技术笔记"
+theme = 'PaperMod'
+
+enableRobotsTXT = true
+enableEmoji = true
+
+[params]
+  author = '蔡昕颖'
+  description = '材料科学 PhD · 触觉传感 · 机器人 · AI 工具'
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+
+[params.homeInfoParams]
+  Title = "Hi, 我是蔡蔡"
+  Content = "香港城市大学材料系 PhD，关注半导体、柔性电子、机器人触觉传感。这里是和 AI 一起搭建的技术笔记。"
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/cecicxy"
+
+[[params.socialIcons]]
+  name = "email"
+  url = "mailto:ntnn3619@agent.qq.com"
+
+[markup.highlight]
+  style = 'github'
+  noClasses = false
+
+[menu]
+  [[menu.main]]
+    name = "文章"
+    url = "/posts/"
+    weight = 1
+  [[menu.main]]
+    name = "标签"
+    url = "/tags/"
+    weight = 2
+  [[menu.main]]
+    name = "分类"
+    url = "/categories/"
+    weight = 3
+  [[menu.main]]
+    name = "关于"
+    url = "/about/"
+    weight = 4
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
