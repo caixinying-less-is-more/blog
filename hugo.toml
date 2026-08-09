@@ -1,4 +1,4 @@
-baseURL = 'https://cecicxy.github.io/cecicxy-blog/'
+baseURL = 'https://caixinying-less-is-more.github.io/cecicxy-blog/'
 locale = 'zh-cn'
 title = "蔡蔡的技术笔记"
 theme = 'PaperMod'
@@ -23,7 +23,7 @@ enableEmoji = true
 
 [[params.socialIcons]]
   name = "github"
-  url = "https://github.com/cecicxy"
+  url = "https://github.com/caixinying-less-is-more"
 
 [[params.socialIcons]]
   name = "email"
