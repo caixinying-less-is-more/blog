@@ -9,7 +9,7 @@
 | 项目 | 内容 |
 |------|------|
 | 博客名称 | 蔡蔡的技术笔记 |
-| 博客地址 | https://cindyclai.com |
+| 博客地址 | https://caixinying-less-is-more.github.io/blog/ |
 | 框架 | Hugo |
 | 文章路径 | `content/posts/` |
 | 主题 | PaperMod |
@@ -84,7 +84,7 @@ AI相关：`Hugo` `GitHub` `Cloudflare` `自动化` `Python` `Markdown`
 AI 会自动：
 1. 生成带 frontmatter 的 Markdown → 保存到 `content/posts/`
 2. `git add && git commit && git push`
-3. Cloudflare Pages 自动部署，1-3 分钟后在 `cindyclai.com` 可见
+3. GitHub Pages 自动部署，1-3 分钟后在 `caixinying-less-is-more.github.io/blog/` 可见
 
 ### 用 ChatGPT 发布（需要手动一步）
 
