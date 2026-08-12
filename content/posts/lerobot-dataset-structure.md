@@ -109,6 +109,34 @@ Parquet 是一种高效的**列式存储**文件格式，专门用来存表格�
 | `data_path` | Parquet 文件的路径模板，`{chunk_index:03d}` 表示补零三位数（如 `chunk-000`） |
 | `video_path` | 视频文件的路径模板，`{video_key}` 替换为摄像头名 |
 
+ chunks_size
+  数据里每帧都有 episode_index 字段（0~76）。LeRobot 加载数据时按 episode_index 分组，不按chunk
+  Chunk 只是文件存储的分块方式，不影响数据的逻辑完整性。
+
+  LeRobot 怎么保证 episode 完整性
+
+  数据里每帧都有 episode_index 字段（0~76）。LeRobot 加载数据时按 episode_index 分组，不按 chunk
+  分组：
+
+  Chunk 0 (frame 0-999):
+    ├─ frame 0-380:   episode 0 (完整) ✓
+    ├─ frame 381-761: episode 1 (完整) ✓
+    └─ frame 762-999: episode 2 的前半部分
+
+  Chunk 1 (frame 1000-1999):
+    ├─ frame 1000-1142: episode 2 的后半部分
+    ├─ ...
+
+  episode 2 的帧虽然跨了两个 chunk 文件，但 LeRobot
+  加载时会自动把它们拼回来。训练时模型看到的是完整的 episode，感知不到 chunk 边界。
+
+  为什么要分 chunk
+
+  纯粹是文件管理的原因：
+
+  - 不分 chunk：29366 帧存成 1 个 100MB 的 parquet 文件，加载慢
+  - 分 chunk：每个文件约 3-4MB，可以并行加载，内存占用小
+
 ### 数据大小
 
 | 字段 | 值 | 含义 |
@@ -161,20 +189,10 @@ Parquet 是一种高效的**列式存储**文件格式，专门用来存表格�
 
 ---
 
-## 摄像头命名有关系吗？
-
-LeRobot 里摄像头名字（如 `front`、`wrist`、`side`）只是一个标签，用来区分多个摄像头。模型看到的只是像素值，它不知道也不关心摄像头装在哪。
-
-只有当你有**多个摄像头**时，名字才有意义——用来区分不同视角。只有一个摄像头时，叫什么名字都不影响训练效果。
-
-常见的摄像头配置：
-
-| 类型 | 名称 | 特点 |
-|------|------|------|
-| 眼在手外（固定） | `front`、`side`、`top` | 摄像头不动，看到全局 |
-| 眼在手上（腕部） | `wrist` | 摄像头随机械臂动，看到夹爪附近细节 |
 
 ---
+
+
 
 ## 总结
 
