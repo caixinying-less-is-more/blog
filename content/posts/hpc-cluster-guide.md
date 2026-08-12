@@ -138,6 +138,33 @@ sinfo -p gpu_a100,gpu_v100s -N -o "%N %G %c %m %l %t"
 - `-N` = 按节点（机器）显示，每台一行
 - `-o "..."` = 自定义格式：`%N` 节点名 | `%G` 每节点 GPU 数 | `%c` CPU 核数 | `%m` 内存大小 | `%l` 最长运行时间 | `%t` 状态
 
+运行后你会看到类似这样的输出：
+
+```text
+NODELIST      GRES         CPUS  MEMORY     STATE
+gpu-a100-07   gpu:a100:4   32    1024000    alloc
+gpu-a100-08   gpu:a100:4   32    1024000    mix
+gpu-a100-09   gpu:a100:4   32    1024000    mix
+gpu-a100-10   gpu:a100:4   32    1024000    mix
+gpu-a100-11   gpu:a100:4   32    1024000    mix
+gpu-a100-12   gpu:a100:4   32    1024000    mix
+```
+
+怎么读这张表：
+
+- `NODELIST` = 节点名，`gpu-a100-07` 就是第 7 号 A100 节点
+- `GRES` = Generic Resource，`gpu:a100:4` 表示每台节点装了 4 张 A100
+- `CPUS` = 每节点 32 个 CPU 核
+- `MEMORY` = 每节点 1TB 内存（单位是 MB，1024000 MB ≈ 1TB）
+- `STATE` = 节点当前状态
+
+这个例子里有 **6 台 A100 节点，每台 4 张卡，总共 24 张 A100**。其中：
+
+- 1 台 `alloc`（4 张卡全被占满，没空位）
+- 5 台 `mix`（部分卡在用，还有空闲 GPU 可以抢）
+
+所以现在就能提交 GPU 训练任务——`mix` 状态的节点上还有卡。这也是第 2 步里 STATE 那张表的实际用法：看到 `mix` 就知道"有空闲资源"。
+
 同时搜索 module 里的 Python 和 conda：
 
 ```bash
@@ -363,4 +390,4 @@ tail -f /gpfs1/scratch/xinyincai3/logs/act_train_<任务ID>.log
 - `--time` 要留余量，超时会被自动杀掉
 - 计算节点不继承登录节点的环境，脚本里要重新 load module
 
-*最后更新：2026-08-10*
+*最后更新：2026-08-12*
