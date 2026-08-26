@@ -13,7 +13,7 @@ description: "10 篇具身智能标志性论文的分层学习策略——两条
 
 一个专业朋友推荐了 10 篇标志性研究成果：Diffusion Policy、UMI、Mobile ALOHA、RT-2、Open-X Embodiment、OpenVLA、RDT、GR00T、Pi0/0.5/0.6、Generalist Gen-0。
 
-**结论：不需要每篇都复现。** 正确策略是分层投入。
+**不需要每篇都复现**，分层投入更合理。
 
 ## 两条技术路线
 
