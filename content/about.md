@@ -12,10 +12,10 @@ draft: false
 
 ### 经历
 
-| 时间 | 经历 |
-|------|------|
-| 2020–2024 | 本科 · 浙江大学 · 能源与环境系统工程 |
-| 2025–至今 | 博士 · 香港城市大学 · 材料科学与工程 |
+| 时间 | 经历 | 邮箱 |
+|------|------|------|
+| 2020–2024 | 本科 · 浙江大学 · 能源与环境系统工程 | 3200103576@zju.edu.cn |
+| 2025–2029 | 博士 · 香港城市大学 · 材料科学与工程 | xinying.cai888@my.cityu.edu.hk |
 
 ### 现在在做什么
 
@@ -38,5 +38,5 @@ draft: false
 
 ### 联系
 
-- Email: ntnn3619@agent.qq.com
+- Email: [xinying.cai888@my.cityu.edu.hk](mailto:xinying.cai888@my.cityu.edu.hk)（在校）｜ [3200103576@zju.edu.cn](mailto:3200103576@zju.edu.cn)（本科）
 - GitHub: [caixinying-less-is-more](https://github.com/caixinying-less-is-more)
